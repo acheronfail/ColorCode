@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="styles/options.css" rel="stylesheet">
+  <link href="codemirror/lib/codemirror.css" rel="stylesheet">
+  <link href="codemirror/theme/3024-day.css" rel="stylesheet">
+  <link href="codemirror/theme/3024-night.css" rel="stylesheet">
+  <link href="codemirror/theme/abcdef.css" rel="stylesheet">
+  <link href="codemirror/theme/ambiance-mobile.css" rel="stylesheet">
+  <link href="codemirror/theme/ambiance.css" rel="stylesheet">
+  <link href="codemirror/theme/base16-dark.css" rel="stylesheet">
+  <link href="codemirror/theme/base16-light.css" rel="stylesheet">
+  <link href="codemirror/theme/bespin.css" rel="stylesheet">
+  <link href="codemirror/theme/blackboard.css" rel="stylesheet">
+  <link href="codemirror/theme/cobalt.css" rel="stylesheet">
+  <link href="codemirror/theme/colorforth.css" rel="stylesheet">
+  <link href="codemirror/theme/dracula.css" rel="stylesheet">
+  <link href="codemirror/theme/duotone-dark.css" rel="stylesheet">
+  <link href="codemirror/theme/duotone-light.css" rel="stylesheet">
+  <link href="codemirror/theme/eclipse.css" rel="stylesheet">
+  <link href="codemirror/theme/elegant.css" rel="stylesheet">
+  <link href="codemirror/theme/erlang-dark.css" rel="stylesheet">
+  <link href="codemirror/theme/hopscotch.css" rel="stylesheet">
+  <link href="codemirror/theme/icecoder.css" rel="stylesheet">
+  <link href="codemirror/theme/isotope.css" rel="stylesheet">
+  <link href="codemirror/theme/lesser-dark.css" rel="stylesheet">
+  <link href="codemirror/theme/liquibyte.css" rel="stylesheet">
+  <link href="codemirror/theme/material.css" rel="stylesheet">
+  <link href="codemirror/theme/mbo.css" rel="stylesheet">
+  <link href="codemirror/theme/mdn-like.css" rel="stylesheet">
+  <link href="codemirror/theme/midnight.css" rel="stylesheet">
+  <link href="codemirror/theme/monokai.css" rel="stylesheet">
+  <link href="codemirror/theme/neat.css" rel="stylesheet">
+  <link href="codemirror/theme/neo.css" rel="stylesheet">
+  <link href="codemirror/theme/night.css" rel="stylesheet">
+  <link href="codemirror/theme/panda-syntax.css" rel="stylesheet">
+  <link href="codemirror/theme/paraiso-dark.css" rel="stylesheet">
+  <link href="codemirror/theme/paraiso-light.css" rel="stylesheet">
+  <link href="codemirror/theme/pastel-on-dark.css" rel="stylesheet">
+  <link href="codemirror/theme/railscasts.css" rel="stylesheet">
+  <link href="codemirror/theme/rubyblue.css" rel="stylesheet">
+  <link href="codemirror/theme/seti.css" rel="stylesheet">
+  <link href="codemirror/theme/solarized.css" rel="stylesheet">
+  <link href="codemirror/theme/the-matrix.css" rel="stylesheet">
+  <link href="codemirror/theme/tomorrow-night-bright.css" rel="stylesheet">
+  <link href="codemirror/theme/tomorrow-night-eighties.css" rel="stylesheet">
+  <link href="codemirror/theme/ttcn.css" rel="stylesheet">
+  <link href="codemirror/theme/twilight.css" rel="stylesheet">
+  <link href="codemirror/theme/vibrant-ink.css" rel="stylesheet">
+  <link href="codemirror/theme/xq-dark.css" rel="stylesheet">
+  <link href="codemirror/theme/xq-light.css" rel="stylesheet">
+  <link href="codemirror/theme/yeti.css" rel="stylesheet">
+  <link href="codemirror/theme/zenburn.css" rel="stylesheet">
+
+  <script src="codemirror/lib/codemirror.js"></script>
+  <script src="codemirror/mode/haskell/haskell.js"></script>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Options & Settings</title>
+</head>
+<body class="wrap">
+  <canvas id="confetti" width="1" height="1"></canvas>
+
+  <div id="container">
+    <!-- Header -->
+    <div class="grid">
+      <div class="unit whole center-on-mobiles heading">
+        <div class="unit three-quarters">
+          <h1>ColorCode</h1>
+          <p class="lead">The Cross-Browser Syntax Highlighter Extension!</p>
+        </div>
+        <div class="unit one-quarter">
+          <img src="images/icon.svg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- content -->
+    <section class="content">
+      <div class="grid">
+        <div class="unit one-third center-on-mobiles">
+
+          <!-- theme -->
+          <div class="option">
+            <h5>Theme</h5>
+            <label for="theme">Choose your syntax highlighting theme.</label>
+            <br>
+            <select id="theme"></select>
+          </div>
+
+          <!-- fontSize -->
+          <div class="option">
+            <h5>Font Size</h5>
+            <label for="fontSize">Choose your desired font size.</label>
+            <br>
+            <select id="fontSize"></select>
+          </div>
+
+          <!-- fontFamily -->
+          <div class="option">
+            <h5>Font Family</h5>
+            <label for="fontFamily">Choose which font you'd like.</label>
+            <br>
+            <select id="fontFamily"></select>
+          </div>
+
+          <!-- lineNumbers -->
+          <div class="option">
+            <h5>Line Numbers</h5>
+            <input id="lineNumbers" type="checkbox" />
+            <label for="lineNumbers">Should there by line numbers?</label>
+          </div>
+
+          <!-- readOnly -->
+          <div class="option">
+            <h5>Read Only</h5>
+            <input id="readOnly" type="checkbox" />
+            <label for="readOnly">Disable this to allow editing of the highlighted code.</label>
+          </div>
+
+        </div>
+        <div class="unit two-thirds center-on-mobiles">
+          <textarea id="demo">module UniquePerms (
+      uniquePerms
+      )
+  where
+
+  -- | Find all unique permutations of a list where there might be duplicates.
+  uniquePerms :: (Eq a) => [a] -> [[a]]
+  uniquePerms = permBag . makeBag
+
+  -- | An unordered collection where duplicate values are allowed,
+  -- but represented with a single value and a count.
+  type Bag a = [(a, Int)]
+
+  makeBag :: (Eq a) => [a] -> Bag a
+  makeBag [] = []
+  makeBag (a:as) = mix a $ makeBag as
+    where
+      mix a []                        = [(a,1)]
+      mix a (bn@(b,n):bs) | a == b    = (b,n+1):bs
+                          | otherwise = bn : mix a bs
+
+  permBag :: Bag a -> [[a]]
+  permBag [] = [[]]
+  permBag bs = concatMap (\(f,cs) -> map (f:) $ permBag cs) . oneOfEach $ bs
+    where
+      oneOfEach [] = []
+      oneOfEach (an@(a,n):bs) =
+          let bs' = if n == 1 then bs else (a,n-1):bs
+          in (a,bs') : mapSnd (an:) (oneOfEach bs)
+
+      apSnd f (a,b) = (a, f b)
+      mapSnd = map . apSnd
+  </textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="grid">
+        <div class="unit whole center-on-mobiles">
+          <p class="text-center text-muted">
+            <a href="https://github.com/acheronfail/ColorCode">&copy; acheronfail/ColorCode</a>
+          </p>
+        </div>
+      </div>
+
+    </footer>
+  </div>
+
+
+  <script src="scripts/options.js"></script>
+</body>
+</html>

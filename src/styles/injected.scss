@@ -1,0 +1,8 @@
+@import "modules/reset";
+
+
+// NOTE: Can't use this yet, since chrome/firefox interpret CSS urls differently.
+// But once they do, it's a much easier way to include the fonts.
+// https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Chrome_incompatibilities
+
+// @import "modules/fonts";

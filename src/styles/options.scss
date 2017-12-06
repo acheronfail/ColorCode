@@ -1,0 +1,73 @@
+@import "modules/reset";
+@import "modules/fonts";
+@import "modules/variables";
+@import "modules/grid";
+@import "modules/layout";
+@import "modules/utilities";
+
+.heading {
+  margin: 1em auto;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #eee;
+
+  h1 + .lead {
+    margin-top: 0.2em;
+  }
+
+  div {
+    height: 128px;
+  }
+
+  img {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+.content {
+  min-height: 300px;
+}
+
+.option {
+  z-index: 10;
+  margin: 1em auto;
+  h5 {
+    margin-bottom: 1em;
+  }
+
+  label {
+    color: $text-secondary;
+  }
+}
+
+#demo, .CodeMirror {
+  border: 1px solid #444444;
+}
+
+// Wrap other content in an absolute element to position it above the canvas.
+
+#container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+// Confetti animation.
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+}
+
+#confetti{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
