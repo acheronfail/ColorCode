@@ -33,6 +33,7 @@ async function onCompleted(details) {
 
   // CSS
   ext.tabs.insertCSS(details.tabId, { file: '/codemirror/lib/codemirror.css' });
+  ext.tabs.insertCSS(details.tabId, { file: '/codemirror/addon/dialog/dialog.css' });
   if (theme != 'default') {
     ext.tabs.insertCSS(details.tabId, { file: `/codemirror/theme/${theme}.css` });
   }
@@ -53,6 +54,9 @@ async function onCompleted(details) {
 
   // JS
   await ext.tabs.executeScript(details.tabId, { file: '/codemirror/lib/codemirror.js' });
+  await ext.tabs.executeScript(details.tabId, { file: '/codemirror/addon/dialog/dialog.js' });
+  await ext.tabs.executeScript(details.tabId, { file: '/codemirror/addon/search/searchcursor.js' });
+  await ext.tabs.executeScript(details.tabId, { file: '/codemirror/addon/search/search.js' });
   if (mode == 'rust') {
     await ext.tabs.executeScript(details.tabId, { file: `/codemirror/addon/mode/simple.js` });
   } else if (mode != 'null') {
@@ -76,6 +80,10 @@ async function onCompleted(details) {
     cm.getWrapperElement().style.fontFamily = "${fontFamily}";
     cm.setSize('100%', '100%');
     cm.refresh();
+
+    CodeMirror.commands.find = CodeMirror.commands.findPersistent;
+    CodeMirror.commands.findNext = CodeMirror.commands.findPersistentNext;
+    CodeMirror.commands.findPrevious = CodeMirror.commands.findPersistentPrevious;
   `;
   await ext.tabs.executeScript(details.tabId, { code });
 }
