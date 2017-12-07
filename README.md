@@ -13,7 +13,7 @@ The Cross-Browser Syntax Highlighter Extension! 🎉
 ## Installation
 
 * For Firefox: https://addons.mozilla.org/en-US/firefox/addon/colorcode/
-* For Chrome: https://chrome.google.com/webstore/detail/colorcode/aokmjdppkdpijecgoclkhggkhijjhpbd
+* For Chrome: https://chrome.google.com/webstore/detail/colorcode/apmkoednnhhkopgaalggjfhomohccaaf
 
 Before ColorCode...
 
